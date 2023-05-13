@@ -86,9 +86,7 @@ const displayPortfolio = (portfolio)=>{
             // const modalContent = portfolio.filter(item => item.id == modal).shift();
             document.getElementById(modal).addEventListener('click',()=>{
                 overlay.classList.add('open-modal')
-                if(modal == portfolio[1].id){
-                    displayModalContent(portfolio[1])
-                }
+                displayModalContent(portfolio)
             })
             closeBtn.addEventListener("click", () => {
                 overlay.classList.remove("open-modal");
@@ -129,30 +127,30 @@ const displayPortfolio = (portfolio)=>{
 //     modalContainer.innerHTML = modalContent;
 // }
 
-// const displayModalContent = (portfolio)=>{
-//     let modalContent = portfolio.map((content)=>{
-//         return `
-//      <div class="modal-project">
-//      <h2 class="work-title">${content.workTitle}</h2>
-//      <ul class="canopy">
-//        <li>${content.workRole.role}</li>
-//        <li>${content.workRole.job}</li>
-//        <li>${content.workRole.year}</li>
-//      </ul>
-//      <div class="work-img">
-//        <img src="${content.workImg}" alt="tonic image">
-//      </div>
-//      <div class="project-description">
-//        <p>${content.workDetails}</p>
-//        <ul class="work-tools">
-//          <li>${content.workTools.stack1}</li>
-//          <li>${content.workTools.stack2}</li>
-//          <li>${content.workTools.stack3}</li>
-//          ${content.workTools.stack4 ? `<li>${content.workTools.stack4}</li>` : ''}
-//        </ul>
-//      </div>
-//    </div>     
-//     `
-//     }).join('')
-//     modalContainer.innerHTML = modalContent
-// }
+const displayModalContent = (portfolio)=>{
+    let modalContent = portfolio.map((content)=>{
+        return `
+     <div class="modal-project">
+     <h2 class="work-title">${content.workTitle}</h2>
+     <ul class="canopy">
+       <li>${content.workRole.role}</li>
+       <li>${content.workRole.job}</li>
+       <li>${content.workRole.year}</li>
+     </ul>
+     <div class="work-img">
+       <img src="${content.workImg}" alt="tonic image">
+     </div>
+     <div class="project-description">
+       <p>${content.workDetails}</p>
+       <ul class="work-tools">
+         <li>${content.workTools.stack1}</li>
+         <li>${content.workTools.stack2}</li>
+         <li>${content.workTools.stack3}</li>
+         ${content.workTools.stack4 ? `<li>${content.workTools.stack4}</li>` : ''}
+       </ul>
+     </div>
+   </div>     
+    `
+    }).join('')
+    modalContainer.innerHTML = modalContent
+}
