@@ -82,7 +82,7 @@ const displayPortfolio = (portfolio)=>{
     const closeBtn = document.querySelector(".close-btn");
    
     // *Aj says* look in the section portfolio not the document
-    const modalBtn = sectionPortfolio.querySelectorAll('.btn')
+    const modalBtn = sectionPortfolio.querySelectorAll('.btn');
 
     // modal functions
     modalBtn.forEach((btn)=>{
